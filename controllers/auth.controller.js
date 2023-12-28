@@ -16,10 +16,6 @@ const {
 } = require("firebase/storage");
 // ============ end ============
 
-// ============ import v4 from uuid =============
-const { v4 } = require("uuid");
-// ============ end =============
-
 const register = asyncWrapper(async (req, res, next) => {
   const { user_name, email, password, role } = req.body;
   const file = req?.file;
