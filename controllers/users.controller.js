@@ -19,8 +19,9 @@ const getAllUsers = asyncWrapper(async (req, res, next) => {
 });
 
 const getSingleUser = asyncWrapper(async (req, res, next) => {
-  const userId = req.params.id;
-  const user = await User.findById(userId);
+  const userId = req.params.userId;
+
+  const user = await User.findById({ _id: userId });
 
   if (!user) {
     const error = appError.create("user not found", 400, FAIL);
