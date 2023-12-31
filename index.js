@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const { ERROE } = require("./utils/httpStatusText");
+const cors = require("cors");
 
 //======================= database connect =======================
 const mongoose = require("mongoose");
@@ -14,6 +15,10 @@ mongoose.connect(url).then(() => {
 
 app.use(express.json());
 //=================== end =======================
+
+// use cors
+app.use(cors());
+//
 
 //======================= app routes =======================
 const usersRouter = require("./routes/users.route");
