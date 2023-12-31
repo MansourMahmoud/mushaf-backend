@@ -5,6 +5,10 @@ const app = express();
 const { ERROE } = require("./utils/httpStatusText");
 const cors = require("cors");
 
+// use cors
+app.use(cors());
+//
+
 //======================= database connect =======================
 const mongoose = require("mongoose");
 const url = process.env.MONGO_URL;
@@ -15,10 +19,6 @@ mongoose.connect(url).then(() => {
 
 app.use(express.json());
 //=================== end =======================
-
-// use cors
-app.use(cors());
-//
 
 //======================= app routes =======================
 const usersRouter = require("./routes/users.route");
